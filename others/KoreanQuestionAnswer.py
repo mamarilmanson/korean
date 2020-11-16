@@ -1,4 +1,5 @@
 #imports
+from tkinter import *
 from datetime import datetime
 
 import os
@@ -182,7 +183,9 @@ def menu():
 
 
     
-#main
+window = Tk()
 
-menu()
+window.title("Korean Vocabularies")
+window.geometry('500x200')
 
+window.mainloop()
