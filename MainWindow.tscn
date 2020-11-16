@@ -1,0 +1,156 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://LanguageChoices_ButtonGroup.tres" type="ButtonGroup" id=1]
+[ext_resource path="res://MainWindow.gd" type="Script" id=2]
+
+[node name="MainWindow" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="QuizWindow" type="Control" parent="."]
+anchor_right = 1.667
+anchor_bottom = 1.657
+margin_right = -0.100006
+margin_bottom = -0.100006
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChildNode" type="Control" parent="QuizWindow"]
+margin_left = 10.0
+margin_top = 111.0
+margin_right = 240.0
+margin_bottom = 111.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TestButton" type="Button" parent="QuizWindow"]
+margin_right = 144.0
+margin_bottom = 20.0
+text = "Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="QuizWindow"]
+margin_left = 11.5559
+margin_top = 47.0945
+margin_right = 289.556
+margin_bottom = 180.094
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuizWindow/ScrollContainer"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuWindow" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MainTitle" type="Label" parent="MenuWindow"]
+margin_top = 60.0
+margin_right = 300.0
+margin_bottom = 87.0
+text = "Choose Type of Questions:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MenuWindow"]
+margin_left = 56.428
+margin_top = 156.705
+margin_right = 160.428
+margin_bottom = 178.705
+text = "No. of items:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemLimit" type="Label" parent="MenuWindow"]
+margin_left = 209.0
+margin_top = 157.0
+margin_right = 257.0
+margin_bottom = 179.0
+text = "xx"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumberOfItems" type="LineEdit" parent="MenuWindow"]
+margin_left = 145.0
+margin_top = 152.0
+margin_right = 203.0
+margin_bottom = 176.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GenerateButton" type="Button" parent="MenuWindow"]
+margin_left = 88.5615
+margin_top = 198.683
+margin_right = 203.562
+margin_bottom = 228.683
+text = "GENERATE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Control" parent="MenuWindow"]
+margin_top = 58.0
+margin_right = 300.0
+margin_bottom = 156.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="kortoeng" type="CheckBox" parent="MenuWindow/Options"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 69.5874
+margin_top = 24.312
+margin_right = -40.4126
+margin_bottom = -39.688
+group = ExtResource( 1 )
+text = "KOREAN to ENGLISH"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="engtokor" type="CheckBox" parent="MenuWindow/Options"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 69.5874
+margin_top = 5.7176
+margin_right = -40.4126
+margin_bottom = 39.7176
+group = ExtResource( 1 )
+text = "ENGLISH to KOREAN"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+margin_left = 34.1014
+margin_top = 81.9316
+margin_right = 269.101
+margin_bottom = 207.932
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="QuizWindow/TestButton" to="." method="_on_TestButton_button_up"]
+[connection signal="pressed" from="MenuWindow/GenerateButton" to="." method="_on_GenerateButton_pressed"]
