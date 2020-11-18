@@ -1,10 +1,5 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var verb = [
 	["go", "가다"],
 	["teach", "가르치다"],
@@ -108,12 +103,10 @@ var verb = [
 	["stir", "휘젓다"],
 ]
 
-var TestLabel
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	TestLabel = load("res://TestLabel.tscn")
-	$MenuWindow/ItemLimit.set_text("/" + str(verb.size()))	
+	$MenuWindow/ItemLimit.set_text("/" + str(verb.size()))
+	OS.set_window_size($MenuWindow.get_size())
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -128,8 +121,10 @@ func _on_GenerateButton_pressed():
 	elif($MenuWindow/Options/engtokor.pressed):
 		print($MenuWindow/NumberOfItems.get_text() + "ENG")
 	
-	OS.set_window_size(Vector2(500, 500))
+	
+	OS.set_window_size($QuizWindow.get_size())
 	$MenuWindow.hide()
+	RepositionWindow()
 #	$WindowDialog.show()
 	pass # Replace with function body.
 	
@@ -137,5 +132,23 @@ func _on_GenerateButton_pressed():
 	
 
 func _on_TestButton_button_up():
-	$QuizWindow/ScrollContainer/VBoxContainer.add_child(TestLabel)
+	#Loading Template Item Child
+	var loadScene = preload("res://TestLabel.tscn").instance()
+	
+	#Putting child on scene
+	
+	loadScene.get_child(0).set_text("Testing")
+	$QuizWindow/ScrollContainer/VBoxContainer.add_child(loadScene)
+	
+	
+	
 	pass # Replace with function body.
+
+
+func RepositionWindow():
+	var WinPos = OS.get_window_position()
+	var AppSize = OS.get_window_size()
+	
+	print(WinPos)
+	print(AppSize)
+	pass
