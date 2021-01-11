@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://VocabularyGroups.gd" type="Script" id=1]
+[ext_resource path="res://KoreanCustomFont.tres" type="DynamicFont" id=2]
+
+[node name="VocabularyGroups" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 423.327, 210.615 ]
+}
+
+[node name="LeftLabel" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 5.0
+margin_right = 209.0
+margin_bottom = 31.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightLabel" type="Label" parent="."]
+margin_left = 209.515
+margin_top = 5.0
+margin_right = 422.515
+margin_bottom = 31.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

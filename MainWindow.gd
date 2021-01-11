@@ -103,52 +103,75 @@ var verb = [
 	["stir", "휘젓다"],
 ]
 
+var quiz_array_items = []
+var quiz_array = []
+var quiz_type = ""
+var items = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MenuWindow/ItemLimit.set_text("/" + str(verb.size()))
+	randomize()
+
+	get_node("MenuWindow/Menu Content/ItemLimit").set_text("/" + str(verb.size()))
 	OS.set_window_size($MenuWindow.get_size())
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_GenerateButton_pressed():
-	if ($MenuWindow/Options/kortoeng.pressed):
-		print($MenuWindow/NumberOfItems.get_text() + "KOR")
+func _process(delta):
+	if (get_node("MenuWindow/Menu Content/Options/kortoeng").pressed):
+		quiz_type = "Korean To English"
+	elif(get_node("MenuWindow/Menu Content/Options/engtokor").pressed):
+		quiz_type = "English To Korean"
 		
-	elif($MenuWindow/Options/engtokor.pressed):
-		print($MenuWindow/NumberOfItems.get_text() + "ENG")
-	
-	
-	OS.set_window_size($QuizWindow.get_size())
-	$MenuWindow.hide()
-	RepositionWindow()
-#	$WindowDialog.show()
-	pass # Replace with function body.
-	
-	
-	
+	if (len(quiz_type))>0 and int(get_node("MenuWindow/Menu Content/NumberOfItems").get_text()) > 0:
+		$MenuWindow/GenerateButton.set_disabled(false)
+	else:
+		$MenuWindow/GenerateButton.set_disabled(true)
 
-func _on_TestButton_button_up():
-	#Loading Template Item Child
-	var loadScene = preload("res://TestLabel.tscn").instance()
-	
-	#Putting child on scene
-	
-	loadScene.get_child(0).set_text("Testing")
-	$QuizWindow/ScrollContainer/VBoxContainer.add_child(loadScene)
-	
-	
-	
-	pass # Replace with function body.
+	pass
+
 
 
 func RepositionWindow():
-	var WinPos = OS.get_window_position()
-	var AppSize = OS.get_window_size()
-	
-	print(WinPos)
-	print(AppSize)
+
 	pass
+
+
+
+func _on_GenerateButton_pressed():
+	var verb_shuffle = [] + verb
+	verb_shuffle.shuffle()
+	items = get_node("MenuWindow/Menu Content/NumberOfItems").get_text()
+	quiz_array = verb_shuffle.slice(0, int(items)-1)
+	
+	OS.set_window_size($QuizWindow.get_size())
+	$MenuWindow.hide()
+	# RepositionWindow()
+	# $WindowDialog.show()
+	$QuizWindow.show()
+
+
+	pass # Replace with function body.
+	
+	
+func _on_QuizWindow_VisibilityChanged():
+	
+	$QuizWindow/QuizWindowType.set_text(quiz_type) # Quiz Window Header
+	
+	for quiz in range(len(quiz_array)):
+		#Putting child on scene
+		var loadScene = preload("res://QuizComponent.tscn").instance() #Pre Loading Template Item Child
+		loadScene.get_node("QuizLabelNumber").set_text(String(quiz+1) + ".") # Item Number/Enumaration
+		loadScene.get_node("QuizLabel").set_text(quiz_array[quiz][0]) # Main Item
+		quiz_array_items.append(loadScene)
+		print(loadScene)
+		$QuizWindow/ScrollContainer/VBoxContainer.add_child(loadScene)
+	
+	print(quiz_array_items)
+
+	pass # Replace with function body.
+
+
+func _on_QuizWindowButton_ButtonUp():
+	print(quiz_array_items["2560"].get_node("Blank").get_text())
+	pass # Replace with function body.

@@ -1,0 +1,160 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://MainWindow002.gd" type="Script" id=1]
+[ext_resource path="res://LanguageChoices_ButtonGroup.tres" type="ButtonGroup" id=2]
+[ext_resource path="res://Items_ButtonGroup.tres" type="ButtonGroup" id=4]
+
+[node name="MainWindow002" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AppBackgroundColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.243137, 0.243137, 0.243137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AppBackgroundColorDark" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -555.0
+color = Color( 0.113725, 0.113725, 0.113725, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GenerateButton" type="Button" parent="."]
+margin_left = 446.809
+margin_top = 26.6721
+margin_right = 578.809
+margin_bottom = 101.672
+text = "GENERATE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator" type="VSeparator" parent="."]
+margin_left = 422.0
+margin_top = 13.0
+margin_right = 426.0
+margin_bottom = 114.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Items" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="CheckBox" parent="Items"]
+margin_left = 59.0
+margin_top = 88.0
+margin_right = 95.0
+margin_bottom = 112.0
+group = ExtResource( 4 )
+text = "5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="10" type="CheckBox" parent="Items"]
+margin_left = 107.669
+margin_top = 88.2509
+margin_right = 151.669
+margin_bottom = 112.251
+group = ExtResource( 4 )
+text = "10"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="20" type="CheckBox" parent="Items"]
+margin_left = 168.531
+margin_top = 88.0
+margin_right = 212.531
+margin_bottom = 112.0
+group = ExtResource( 4 )
+text = "20"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="50" type="CheckBox" parent="Items"]
+margin_left = 224.978
+margin_top = 87.0
+margin_right = 268.978
+margin_bottom = 111.0
+group = ExtResource( 4 )
+text = "50"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="100" type="CheckBox" parent="Items"]
+margin_left = 280.304
+margin_top = 87.0
+margin_right = 332.304
+margin_bottom = 111.0
+group = ExtResource( 4 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="."]
+margin_left = 65.0
+margin_top = 76.0
+margin_right = 423.0
+margin_bottom = 84.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Language" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ktoe" type="CheckBox" parent="Language"]
+margin_left = 59.4975
+margin_top = 50.7695
+margin_right = 217.498
+margin_bottom = 74.7695
+group = ExtResource( 2 )
+text = "KOREAN to ENGLISH"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="etok" type="CheckBox" parent="Language"]
+margin_left = 229.224
+margin_top = 50.3553
+margin_right = 387.224
+margin_bottom = 74.3553
+group = ExtResource( 2 )
+text = "ENGLISH to KOREAN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 64.3182
+margin_top = 13.1137
+margin_right = 384.318
+margin_bottom = 37.1137
+text = "N/A"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="GenerateButton" to="." method="_on_GenerateButton_pressed"]

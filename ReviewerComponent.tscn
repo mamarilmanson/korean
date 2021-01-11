@@ -1,0 +1,53 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://KoreanUI_Theme.tres" type="Theme" id=1]
+
+[node name="TestLabel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_horizontal_guides_": [ 20.9385 ],
+"_edit_use_anchors_": false
+}
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_right = 360.0
+margin_bottom = 53.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="."]
+margin_top = 49.0
+margin_right = 335.0
+margin_bottom = 53.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuizLabel" type="Label" parent="."]
+margin_left = 26.9633
+margin_top = 3.11815
+margin_right = 95.963
+margin_bottom = 21.1181
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuizLabelNumber" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 20.0
+margin_bottom = 21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_top = 21.0
+margin_right = 336.0
+margin_bottom = 50.0
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

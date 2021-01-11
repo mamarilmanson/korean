@@ -1,0 +1,11 @@
+[gd_scene format=2]
+
+[node name="QuizButton" type="Button"]
+margin_left = 62.0
+margin_top = 233.0
+margin_right = 440.0
+margin_bottom = 265.0
+text = "NEXT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
